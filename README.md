@@ -19,7 +19,7 @@ With these Requirements, you are ready to run your tournament.  See the OFFICIAL
 Note: Python 3.6 is available for Enthought Canopy 2.1 and will come standard in Canopy 2.2
 At this time, other IDEs may be easier to use.
 
-## Running a Tournament
+## Running the Program
 
 To run a tournament, Run `iterated-dilemma.py` with the names of your modules.
 For example, if you have team modules named:
@@ -36,6 +36,10 @@ Alternately, if you've got a directory that contains your modules, and the only 
 ```
 ./iterated-dilemma.py -d modules
 ```
+
+## Hosting a Tournament
+The Iterative Prisoners Dilemma is designed to be staged on GitHub.  To host your own tournament, A group of competitors 
+
 
 ## Notes & FAQ
 
