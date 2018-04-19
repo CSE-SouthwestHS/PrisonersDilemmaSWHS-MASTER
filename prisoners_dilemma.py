@@ -169,8 +169,10 @@ def make_section_2(teams, scores):
         print('{0:2}) {1:<16}(P{2}): {3:>8} points with {4:<20}'.format(team_index + 1, team.team_name, team.team_number, team.summed_scores, team.strategy_name))
 
 
-def main(module_names):
+def main(module_names, should_random):
     teams = load_modules(module_names)
+    if should_random:
+        random.shuffle(teams)
     if not teams:
         return 1
     else:

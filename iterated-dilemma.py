@@ -10,12 +10,17 @@ import prisoners_dilemma
 from loadfromdir import get_list_of_filenames
 import os
 
+should_rand = False
 modules = sys.argv
 del modules[0]
 
 if len(modules) == 0:
     modules = prisoners_dilemma.default_module_names
     print('No command-line arguments found, using default_module_names')
+
+if '-r' in modules:
+    should_rand = True
+    modules.remove('-r')
 
 updated_modules = []
 
@@ -38,4 +43,4 @@ for module_index in range(len(modules)):
 for module_path in updated_modules:
     assert os.path.isfile(module_path), "There is no file named {}".format(module_path)
 
-prisoners_dilemma.main(updated_modules)
+prisoners_dilemma.main(updated_modules, should_rand)
