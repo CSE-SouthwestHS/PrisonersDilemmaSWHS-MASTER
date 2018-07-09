@@ -43,7 +43,7 @@ One person is allowed only one entry file, and you may not add players that do n
 (The person administering your tournament may add players, such as the examplemodules.)
 
 ### 7.
-Your program may not spawn new players (real or virtual) which break the previous rule.
+Your program may not spawn new players (real or virtual) if they break the previous rule.
 
 ### 8.
 You may not change the interpretation of "c" or "b" during the competition or add additional acceptable answers.

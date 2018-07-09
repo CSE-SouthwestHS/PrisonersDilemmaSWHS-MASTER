@@ -1,9 +1,11 @@
 # PLACE YOUR MODULE IN THIS DIRECTORY TO COMPETE!
-To participate in the tournament, you must submit a python module entry in this directory.
+To participate in the tournament, you must submit a python module entry **in this directory**.
 
 ## NOTE TO TOURNAMENT HOST
+You may want to add any number of example modules to the to the tournament to provide extra competitors.
+To do so, simply place them into in this directory.
 
-# To Compete:
+# TO COMPETE:
 1. Using Git, make a `Branch` of this Prisoners Dilemma repository.
 2. On your Branch, create your Module in this directory.
 3. When your Module is complete, `Commit` your final changes to your branch.
