@@ -1,5 +1,6 @@
 # PrisonersDilemmaSWHS
-*Coded by Arthur Goldman (Computer Science Student - Minneapolis Southwest High School, 2017)*
+*Coded by [Arthur Goldman](https://github.com/gefjon) (Computer Science Student - Minneapolis Southwest High School, 2017)*
+  *Contributors: [Henning Tonko](https://github.com/HenningTonko) Added -r argument (random player order 2018)
 
 *Brought to you by Gabriel A Pass (PLTW Computer Science Instructor)*
 
@@ -36,6 +37,9 @@ Alternately, if you've got a directory that contains your modules, and the only 
 ```
 ./iterated-dilemma.py -d examplemodules
 ```
+
+Additional Options:
+`-r` argument results in randomized player order
 
 ## Hosting a Tournament
 The Iterative Prisoners Dilemma is designed to be staged on GitHub.  To host your own tournament, clone this repository and upload it as a new repository to your own GitHub account.  Each competing team can clone the repository, branch it, program and test their module solution, and send a pull request to your master branch.  Merge all your competitors branches and run the competition.  
