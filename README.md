@@ -1,10 +1,10 @@
 # PrisonersDilemmaSWHS
-*Coded by [Arthur Goldman](https://github.com/gefjon) (Computer Science Student - Minneapolis Southwest High School, 2017)*
-  *Contributors: [Henning Tonko](https://github.com/HenningTonko) Added -r argument (random player order 2018)
+#### Coded by [Arthur Goldman](https://github.com/gefjon) (Minneapolis Southwest High School, Class of 2017)
+* Contributors: [Henning Tonko](https://github.com/HenningTonko) Added -r argument (SWHS Class of 2018)
 
-*Brought to you by Gabriel A Pass (PLTW Computer Science Instructor)*
+#### Brought to you by Gabriel A Pass (PLTW Computer Science Instructor)
 
-*For more information contact: gabriel@gapmedia.org*
+#### For more information contact: gabriel@gapmedia.org
 
 This program was created for the PLTW (Project Lead the Way) Computer Science Principles course.  We are providing it to the PLTW CS community to give back to this outstanding curriculum design.  This Prisoners Dilemma was coded from scratch to provides some new usability features and an upgrade path to the latest version of Python.  
 
