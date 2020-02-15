@@ -9,6 +9,7 @@ import GLOBALS
 from teamclass import Team
 from pandas import DataFrame
 import random
+from typing import List
 
 default_module_names = ['examplemodules/example0.py',
                         'examplemodules/example1.py',
@@ -16,35 +17,33 @@ default_module_names = ['examplemodules/example0.py',
                         'examplemodules/example3.py']
 
 
-def sum_list(list_to_sum):
-    '''
+def sum_list(list_to_sum: List[int]):
+    """
     I feel like this function is pretty intuitive
     given a list of numbers, it adds them together
-    '''
+    """
     count = 0
     for value in list_to_sum:
-        assert type(value) is int, "Why are you summing non-ints?"
         count += value
     return count
 
 
-def load_modules(module_names):
-    '''
+def load_modules(module_names: List[str]):
+    """
     Given a list of strings with paths to modules,
     load them. Return a list of teams, which are
     instances of Team from teamclass.py
-    '''
-    teams = [False for i in range(len(module_names))]
-    for count in range(len(module_names)):
-        teams[count] = Team(module_names[count])
-    assert False not in teams, "There's a False somewhere in teams"
+    """
+    teams = []
+    for module_name in module_names:
+        teams.append(Team(module_name))
     return teams
 
 
-def play_tournament(modules):
-    scores = [[False for i in range(len(modules))] for j in range(len(modules))]  # an n*n list for scores
+def play_tournament(modules: List[Team]):
+    scores = [[False for _ in range(len(modules))] for _ in range(len(modules))]  # an n*n list for scores
     # each player's scores are in scores[that_player][opponent]
-    moves = [[False for i in range(len(modules))] for j in range(len(modules))]  # an n*n list for moves
+    moves = [[False for _ in range(len(modules))] for _ in range(len(modules))]  # an n*n list for moves
     for first_team_index in range(len(modules)):
         for second_team_index in range(first_team_index + 1):
             # each player plays against all the players before them
@@ -108,8 +107,10 @@ def play_single_dilemma(player_1,
                                   player_1_moves,
                                   player_2_score,
                                   player_1_score)
-    assert player_1_move in GLOBALS.ACCEPTABLE_RESPONES, "{} gave a bad response in a match against {}".format(player_1.team_name, player_2.team_name)
-    assert player_2_move in GLOBALS.ACCEPTABLE_RESPONES, "{} gave a bad response in a match against {}".format(player_2.team_name, player_1.team_name)
+    assert player_1_move in GLOBALS.ACCEPTABLE_RESPONSES,\
+        f"{player_1.team_name} gave a bad response in a match against {player_2.team_name}"
+    assert player_2_move in GLOBALS.ACCEPTABLE_RESPONSES,\
+        f"{player_2.team_name} gave a bad response in a match against {player_1.team_name}"
     player_1_round_score = 0
     player_2_round_score = 0
     if (player_1_move == GLOBALS.COLLUDE) and (player_2_move == GLOBALS.COLLUDE):
@@ -130,53 +131,47 @@ def play_single_dilemma(player_1,
         player_2_move
 
 
-def make_section_title(title):
-    assert type(title) is str, "make_section_title was called with a non-string"
+def make_section_title(title: str):
     print('{:-^80}'.format(''))
     print('{:^80}'.format(title))
     print('{:-^80}'.format(''))
 
 
-def make_single_team_section_0(team, count):
-    assert isinstance(team, Team), "Tried to make a section 0 for a non-team"
-    assert type(count) is int, "Tried to make a section 0 with a non-int team number"
-    print('P{0}: {1} using {2} ({3})'.format(count, team.team_name, team.strategy_name, team.strategy_description))
+def display_team_info(team: Team, count: int):
+    print(f'P{count}: {team.team_name} using {team.strategy_name} ({team.strategy_description})')
 
 
-def make_section_0(teams):
+def display_lineup(teams: List[Team]):
     make_section_title('Lineup')
     for team_number in range(len(teams)):
-        assert isinstance(teams[team_number], Team), "There's a non-team in teams"
         teams[team_number].team_number = team_number
-        make_single_team_section_0(teams[team_number], team_number)
+        display_team_info(teams[team_number], team_number)
 
 
-def make_section_1(teams, scores):
+def display_pvp_score(scores: List[List[int]]):
     make_section_title('Player vs. Player Scores')
     print('To find player n\'s average score against player m, check the nth row and the mth column')
     print(DataFrame(scores))
 
 
-def make_section_2(teams, scores):
+def display_standings(teams: List[Team], scores):
     make_section_title('Standings')
     for team_index in range(len(teams)):
-        assert isinstance(teams[team_index], Team), "There's a non-team in teams"
         teams[team_index].summed_scores = sum_list(scores[team_index])
     teams.sort(key=lambda team: team.summed_scores, reverse=True)
     for team_index in range(len(teams)):
-        assert isinstance(teams[team_index], Team), "There's a non-team in teams"
         team = teams[team_index]
         print('{0:2}) {1:<16}(P{2}): {3:>8} points with {4:<20}'.format(team_index + 1, team.team_name, team.team_number, team.summed_scores, team.strategy_name))
 
 
-def main(module_names, should_random):
+def main(module_names: List[str], should_random: bool):
     teams = load_modules(module_names)
     if should_random:
         random.shuffle(teams)
     if not teams:
         return 1
     else:
-        make_section_0(teams)
+        display_lineup(teams)
         scores, moves = play_tournament(teams)
-        make_section_1(teams, scores)
-        make_section_2(teams, scores)
+        display_pvp_score(scores)
+        display_standings(teams, scores)

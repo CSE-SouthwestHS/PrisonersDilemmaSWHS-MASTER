@@ -1,4 +1,4 @@
-ACCEPTABLE_RESPONES = COLLUDE, BETRAY, ZION = 'c', 'b', 's' 
+ACCEPTABLE_RESPONSES = COLLUDE, BETRAY, ZION = 'c', 'b', 's'
 REQUIRED_ATTRIBUTES = ['team_name', 
                        'strategy_name', 
                        'strategy_description', 
