@@ -64,14 +64,14 @@ def play_tournament(modules: List[Team]):
 
 
 def play_round(player_1: Team, player_2: Team):
-    NUMBER_OF_ROUNDS = random.randint(100, 200)  # The original module played a random number of rounds between 100 and 200
+    number_of_rounds = random.randint(100, 200)  # The original module played a random number of rounds between 100 and 200
     player_1_moves = ''  # we store moves as a string of 'b's and 'c's
     player_2_moves = ''
     # That's super inefficent because of how python stores strings
     # a better version of this tool would use booleans for betraying and colluding and have a list of them
     player_1_score = 0
     player_2_score = 0
-    for round in range(NUMBER_OF_ROUNDS):
+    for round in range(number_of_rounds):
         player_1_single_score, \
             player_2_single_score, \
             player_1_single_move, \
@@ -86,8 +86,8 @@ def play_round(player_1: Team, player_2: Team):
         player_2_score += player_2_single_score
         player_1_moves += player_1_single_move
         player_2_moves += player_2_single_move
-    player_1_score = int(player_1_score / NUMBER_OF_ROUNDS)
-    player_2_score = int(player_2_score / NUMBER_OF_ROUNDS)
+    player_1_score = int(player_1_score / number_of_rounds)
+    player_2_score = int(player_2_score / number_of_rounds)
     # Take the integer average score for each player so that it doesn't matter that we're doing a random number of rounds
     return player_1_score, player_2_score, player_1_moves, player_2_moves
 
