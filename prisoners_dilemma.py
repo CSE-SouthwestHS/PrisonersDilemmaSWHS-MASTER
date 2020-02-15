@@ -17,17 +17,6 @@ default_module_names = ['examplemodules/example0.py',
                         'examplemodules/example3.py']
 
 
-def sum_list(list_to_sum: List[int]):
-    """
-    I feel like this function is pretty intuitive
-    given a list of numbers, it adds them together
-    """
-    count = 0
-    for value in list_to_sum:
-        count += value
-    return count
-
-
 def load_modules(module_names: List[str]):
     """
     Given a list of strings with paths to modules,
@@ -71,7 +60,7 @@ def play_round(player_1: Team, player_2: Team):
     # a better version of this tool would use booleans for betraying and colluding and have a list of them
     player_1_score = 0
     player_2_score = 0
-    for round in range(number_of_rounds):
+    for _ in range(number_of_rounds):
         player_1_single_score, \
             player_2_single_score, \
             player_1_single_move, \
@@ -156,7 +145,7 @@ def display_pvp_score(scores: List[List[int]]):
 def display_standings(teams: List[Team], scores: List[List[int]]):
     make_section_title('Standings')
     for team_index in range(len(teams)):
-        teams[team_index].summed_scores = sum_list(scores[team_index])
+        teams[team_index].summed_scores = sum(scores[team_index])
     teams.sort(key=lambda team: team.summed_scores, reverse=True)
     for team_index in range(len(teams)):
         team = teams[team_index]
