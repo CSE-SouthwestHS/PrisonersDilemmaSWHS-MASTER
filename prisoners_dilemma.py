@@ -35,8 +35,8 @@ def load_modules(module_names: List[str]):
     instances of Team from teamclass.py
     """
     teams = []
-    for module_name in module_names:
-        teams.append(Team(module_name))
+    for team_number, module_name in enumerate(module_names):
+        teams.append(Team(module_name, team_number))
     return teams
 
 
@@ -137,20 +137,19 @@ def make_section_title(title: str):
     print('{:-^80}'.format(''))
 
 
-def display_team_info(team: Team, count: int):
-    print(f'P{count}: {team.team_name} using {team.strategy_name} ({team.strategy_description})')
+def display_team_info(team: Team):
+    print(f'P{team.team_number}: {team.team_name} using {team.strategy_name} ({team.strategy_description})')
 
 
 def display_lineup(teams: List[Team]):
     make_section_title('Lineup')
-    for team_number in range(len(teams)):
-        teams[team_number].team_number = team_number
-        display_team_info(teams[team_number], team_number)
+    for team in teams:
+        display_team_info(team)
 
 
 def display_pvp_score(scores: List[List[int]]):
     make_section_title('Player vs. Player Scores')
-    print('To find player n\'s average score against player m, check the nth row and the mth column')
+    print("To find player n's average score against player m, check the nth row and the mth column")
     print(DataFrame(scores))
 
 
