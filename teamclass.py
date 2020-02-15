@@ -20,7 +20,7 @@ class Team:
     summed_scores = False
     team_number = False
 
-    def __init__(self, module_name, team_number):
+    def __init__(self, module_name: str, team_number: int):
         try:
             spec = importlib.util.spec_from_file_location("Someone's team module", module_name)
             module = importlib.util.module_from_spec(spec)

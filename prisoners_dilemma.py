@@ -63,7 +63,7 @@ def play_tournament(modules: List[Team]):
     return scores, moves
 
 
-def play_round(player_1, player_2):
+def play_round(player_1: Team, player_2: Team):
     NUMBER_OF_ROUNDS = random.randint(100, 200)  # The original module played a random number of rounds between 100 and 200
     player_1_moves = ''  # we store moves as a string of 'b's and 'c's
     player_2_moves = ''
@@ -92,12 +92,12 @@ def play_round(player_1, player_2):
     return player_1_score, player_2_score, player_1_moves, player_2_moves
 
 
-def play_single_dilemma(player_1,
-                        player_2,
-                        player_1_score,
-                        player_2_score,
-                        player_1_moves,
-                        player_2_moves):
+def play_single_dilemma(player_1: Team,
+                        player_2: Team,
+                        player_1_score: int,
+                        player_2_score: int,
+                        player_1_moves: str,
+                        player_2_moves: str):
 
     player_1_move = player_1.move(player_1_moves,
                                   player_2_moves,
@@ -153,7 +153,7 @@ def display_pvp_score(scores: List[List[int]]):
     print(DataFrame(scores))
 
 
-def display_standings(teams: List[Team], scores):
+def display_standings(teams: List[Team], scores: List[List[int]]):
     make_section_title('Standings')
     for team_index in range(len(teams)):
         teams[team_index].summed_scores = sum_list(scores[team_index])
