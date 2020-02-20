@@ -3,8 +3,9 @@ REQUIRED_ATTRIBUTES = ['team_name',
                        'strategy_name', 
                        'strategy_description', 
                        'move'] 
-REWARD = 0 
-TEMPTATION = 100 
-SUCKER = -500 
-PUNISHMENT = -250 
+REWARD = 0
+TEMPTATION = 100
+SUCKER = -500
+PUNISHMENT = -250
+CRASH = -500
 MODULES_DIRECTORY = 'modules/'
