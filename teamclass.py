@@ -8,7 +8,7 @@ import importlib.util
 import re
 
 
-regex = re.compile(r"^[a-zA-Z0-9 ]*$")
+regex = re.compile(r"[^a-zA-Z\d :.,'%`]")
 
 
 class Team:
@@ -33,17 +33,14 @@ class Team:
 
             assert hasattr(module, 'team_name'), f"module {module_name} does not define team_name"
             self.team_name = regex.sub('', module.team_name)[:16]\
-                .replace('\n', '') \
                 .rstrip()
             
             assert hasattr(module, 'strategy_name'), f"module {module_name} does not define strategy_name"
             self.strategy_name = regex.sub('', module.strategy_name)[:70]\
-                .replace('\n', '') \
                 .rstrip()
             
             assert hasattr(module, 'strategy_description'), f"module {module_name} does not define strategy_description"
             self.strategy_description = regex.sub('', module.strategy_description)[:350]\
-                .replace('\n', '') \
                 .rstrip()
             
             assert hasattr(module, 'move'), f"module {module_name} does not define move"
