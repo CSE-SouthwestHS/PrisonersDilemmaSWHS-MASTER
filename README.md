@@ -68,11 +68,11 @@ python iterated-dilemma.py
 
 Each team's module should conform to Python 3.6 and must provide several things:
 
-`team_name`: a string, no more than 16 characters long, containing no newlines or other weird blank space
+`team_name`: a string, no more than 16 characters long, containing no newlines or other weird blank space (must not match regex [^a-zA-Z\d\s:.,'%`])
 
-`strategy_name`: a string, no more than 20 characters long, containing no newlines or other weird blank space
+`strategy_name`: a string, no more than 70 characters long, containing no newlines or other weird blank space (must not match regex [^a-zA-Z\d\s:.,'%`])
 
-`strategy_description`: a string containing no newlines or other weird blank space
+`strategy_description`: a string, no more then 350 characters long, containing no newlines or other weird blank space (must not match regex [^a-zA-Z\d\s:.,'%`])
 
 `move(my_moves, their_moves, my_score, their_score)`: a function that returns either `'b'` or `'c'` for BETRAY or COLLUDE. You can also `import GLOBALS` and return `GLOBALS.BETRAY` or `GLOBALS.COLLUDE`. `my_moves` and `their_moves` are strings containing the moves that each player has taken so far in this iterated dilemma, and `my_score` and `their_score` are ints that will usually be negative containing each player's score so far in this round.
 
