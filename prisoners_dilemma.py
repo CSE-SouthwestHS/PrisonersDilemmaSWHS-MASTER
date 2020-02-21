@@ -87,21 +87,36 @@ def play_single_dilemma(player_1: Team,
                         player_2_score: int,
                         player_1_moves: str,
                         player_2_moves: str):
-
-    player_1_move = player_1.move(player_1_moves,
-                                  player_2_moves,
-                                  player_1_score,
-                                  player_2_score)
-    player_2_move = player_2.move(player_2_moves,
-                                  player_1_moves,
-                                  player_2_score,
-                                  player_1_score)
-    assert player_1_move in GLOBALS.ACCEPTABLE_RESPONSES,\
-        f"{player_1.team_name} gave a bad response in a match against {player_2.team_name}"
-    assert player_2_move in GLOBALS.ACCEPTABLE_RESPONSES,\
-        f"{player_2.team_name} gave a bad response in a match against {player_1.team_name}"
     player_1_round_score = 0
     player_2_round_score = 0
+
+    try:
+        player_1_move = player_1.move(player_1_moves,
+                                      player_2_moves,
+                                      player_1_score,
+                                      player_2_score)
+    except:
+        player_1_round_score = GLOBALS.CRASH
+        player_1_move = 'n'
+        print(f"{player_1.team_name} crashed in a match against {player_2.team_name}, deducting {GLOBALS.CRASH * -1} points as a result")
+
+    try:
+        player_2_move = player_2.move(player_2_moves,
+                                      player_1_moves,
+                                      player_2_score,
+                                      player_1_score)
+    except:
+        player_2_round_score = GLOBALS.CRASH
+        player_2_move = 'n'
+        print(f"{player_2.team_name} crashed in a match against {player_1.team_name}, deducting {GLOBALS.CRASH * -1} points as a result")
+    if player_1_move not in GLOBALS.ACCEPTABLE_RESPONSES and not player_1_move == 'n':
+        player_1_round_score = GLOBALS.CRASH
+        player_1_move = 'n'
+        print(f"{player_1.team_name} made a bad response in a match against {player_2.team_name}, deducting {GLOBALS.CRASH * -1} points as a result")
+    if player_2_move not in GLOBALS.ACCEPTABLE_RESPONSES and not player_1_move == 'n':
+        player_2_round_score = GLOBALS.CRASH
+        player_2_move = 'n'
+        print(f"{player_2.team_name} made a bad response in a match against {player_1.team_name}, deducting {GLOBALS.CRASH * -1} points as a result")
     if (player_1_move == GLOBALS.COLLUDE) and (player_2_move == GLOBALS.COLLUDE):
         player_1_round_score += GLOBALS.REWARD
         player_2_round_score += GLOBALS.REWARD
