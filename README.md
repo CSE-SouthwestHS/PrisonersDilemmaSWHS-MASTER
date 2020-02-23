@@ -1,12 +1,14 @@
 # PrisonersDilemmaSWHS
 #### Coded by [Arthur Goldman](https://github.com/gefjon) (Minneapolis Southwest High School, Class of 2017)
-* Contributors: [Henning Tonko](https://github.com/HenningTonko) Added -r argument (SWHS Class of 2018)
+Contributors:
+* [Henning Tonko](https://github.com/HenningTonko) Added -r (random) argument (SWHS Class of 2018)
+* [Themistocles Megas](https://github.com/Themis3000) Improved code optimization, python 3.8 support, and rule compliance. (SWHS Class of 2021)
 
 #### Brought to you by Gabriel A Pass (PLTW Computer Science Instructor)
 
 #### For more information contact: gabriel@gapmedia.org
 
-This program was created for the PLTW (Project Lead the Way) Computer Science Principles course.  We are providing it to the PLTW CS community to give back to this outstanding curriculum design.  This Prisoners Dilemma was coded from scratch to provides some new usability features and an upgrade path to the latest version of Python.  
+This is a Python 3 implementation of the Age old problem of logic, game theory.  It was inspired by a Python 2 approach by PLTW (Project Lead the Way) for their Computer Science Principles course.  This implementation of the dilemma was coded from scratch by the Southwest High School students credited above.  Our approach provides a new formulation of the classic logic problem, with new rules, and all new opportunities to cheat ( ͡° ͜ʖ ͡°).  We are providing this Python 3 Iterated Prisoner's Dilemma to the community of Python students and developers for your enjoyment and challenge.
 
 ## Requirements
 
