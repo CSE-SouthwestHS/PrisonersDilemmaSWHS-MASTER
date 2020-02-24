@@ -11,6 +11,7 @@ from loadfromdir import get_list_of_filenames
 import os
 
 should_rand = False
+suppress_exceptions = False
 modules = sys.argv
 del modules[0]
 
@@ -21,6 +22,10 @@ if len(modules) == 0:
 if '-r' in modules:
     should_rand = True
     modules.remove('-r')
+
+if '-e' in modules:
+    suppress_exceptions = True
+    modules.remove('-e')
 
 updated_modules = []
 
@@ -43,4 +48,4 @@ for module_index in range(len(modules)):
 for module_path in updated_modules:
     assert os.path.isfile(module_path), "There is no file named {}".format(module_path)
 
-prisoners_dilemma.main(updated_modules, should_rand)
+prisoners_dilemma.main(updated_modules, should_rand, suppress_exceptions)

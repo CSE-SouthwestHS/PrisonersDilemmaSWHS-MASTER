@@ -10,6 +10,7 @@ from teamclass import Team
 from pandas import DataFrame
 import random
 from typing import List
+import sys
 
 default_module_names = ['examplemodules/example0.py',
                         'examplemodules/example1.py',
@@ -29,7 +30,7 @@ def load_modules(module_names: List[str]):
     return teams
 
 
-def play_tournament(modules: List[Team]):
+def play_tournament(modules: List[Team], suppress_exceptions: bool = True):
     scores = [[False for _ in range(len(modules))] for _ in range(len(modules))]  # an n*n list for scores
     # each player's scores are in scores[that_player][opponent]
     moves = [[False for _ in range(len(modules))] for _ in range(len(modules))]  # an n*n list for moves
@@ -44,7 +45,7 @@ def play_tournament(modules: List[Team]):
                 # play against the opponent, log scores in the lists
                 player_1 = modules[first_team_index]
                 player_2 = modules[second_team_index]
-                player_1_score, player_2_score, player_1_moves, player_2_moves = play_round(player_1, player_2)
+                player_1_score, player_2_score, player_1_moves, player_2_moves = play_round(player_1, player_2, suppress_exceptions)
                 scores[first_team_index][second_team_index] = player_1_score
                 scores[second_team_index][first_team_index] = player_2_score
                 moves[first_team_index][second_team_index] = player_1_moves
@@ -52,12 +53,10 @@ def play_tournament(modules: List[Team]):
     return scores, moves
 
 
-def play_round(player_1: Team, player_2: Team):
-    number_of_rounds = random.randint(100, 200)  # The original module played a random number of rounds between 100 and 200
-    player_1_moves = ''  # we store moves as a string of 'b's and 'c's
+def play_round(player_1: Team, player_2: Team, suppress_exceptions: bool = True):
+    number_of_rounds = random.randint(100, 200)  # Plays a random number of rounds between 100 and 200
+    player_1_moves = ''  # we store moves as a string of 'b's and 'c's with crashes being an 'n'
     player_2_moves = ''
-    # That's super inefficent because of how python stores strings
-    # a better version of this tool would use booleans for betraying and colluding and have a list of them
     player_1_score = 0
     player_2_score = 0
     for _ in range(number_of_rounds):
@@ -70,7 +69,8 @@ def play_round(player_1: Team, player_2: Team):
                                   player_1_score,
                                   player_2_score,
                                   player_1_moves,
-                                  player_2_moves)
+                                  player_2_moves,
+                                  suppress_exceptions)
         player_1_score += player_1_single_score
         player_2_score += player_2_single_score
         player_1_moves += player_1_single_move
@@ -86,7 +86,8 @@ def play_single_dilemma(player_1: Team,
                         player_1_score: int,
                         player_2_score: int,
                         player_1_moves: str,
-                        player_2_moves: str):
+                        player_2_moves: str,
+                        suppress_exceptions: bool = True):
     player_1_round_score = 0
     player_2_round_score = 0
 
@@ -95,20 +96,25 @@ def play_single_dilemma(player_1: Team,
                                       player_2_moves,
                                       player_1_score,
                                       player_2_score)
-    except:
+    except Exception:
         player_1_round_score = GLOBALS.CRASH
         player_1_move = 'n'
         print(f"{player_1.team_name} crashed in a match against {player_2.team_name}, deducting {GLOBALS.CRASH * -1} points as a result")
+        if not suppress_exceptions:
+            raise
 
     try:
         player_2_move = player_2.move(player_2_moves,
                                       player_1_moves,
                                       player_2_score,
                                       player_1_score)
-    except:
+    except Exception:
         player_2_round_score = GLOBALS.CRASH
         player_2_move = 'n'
         print(f"{player_2.team_name} crashed in a match against {player_1.team_name}, deducting {GLOBALS.CRASH * -1} points as a result")
+        if not suppress_exceptions:
+            raise
+
     if player_1_move not in GLOBALS.ACCEPTABLE_RESPONSES and not player_1_move == 'n':
         player_1_round_score = GLOBALS.CRASH
         player_1_move = 'n'
@@ -167,7 +173,7 @@ def display_standings(teams: List[Team], scores: List[List[int]]):
         print('{0:2}) {1:<16}(P{2}): {3:>8} points with {4:<20}'.format(team_index + 1, team.team_name, team.team_number, team.summed_scores, team.strategy_name))
 
 
-def main(module_names: List[str], should_random: bool):
+def main(module_names: List[str], should_random: bool = False, suppress_exceptions: bool = False):
     teams = load_modules(module_names)
     if should_random:
         random.shuffle(teams)
@@ -175,6 +181,6 @@ def main(module_names: List[str], should_random: bool):
         return 1
     else:
         display_lineup(teams)
-        scores, moves = play_tournament(teams)
+        scores, moves = play_tournament(teams, suppress_exceptions)
         display_pvp_score(scores)
         display_standings(teams, scores)
