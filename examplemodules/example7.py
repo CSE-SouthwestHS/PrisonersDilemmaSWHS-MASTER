@@ -16,7 +16,7 @@ If I haven't been betrayed yet, I'll betray starting with the 100th round.
 import random
 
 
-def move(my_history, their_history, my_score, their_score):
+def move(my_history, their_history, my_score, their_score, opponent_name):
     """Make my move based on the history with this player.
     
     history: a string with one letter (c or b) per round that has been played with this opponent.
