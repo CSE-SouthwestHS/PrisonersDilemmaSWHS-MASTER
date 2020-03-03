@@ -95,7 +95,8 @@ def play_single_dilemma(player_1: Team,
         player_1_move = player_1.move(player_1_moves,
                                       player_2_moves,
                                       player_1_score,
-                                      player_2_score)
+                                      player_2_score,
+                                      player_2.team_name)
     except Exception:
         player_1_round_score = GLOBALS.CRASH
         player_1_move = 'n'
@@ -107,7 +108,8 @@ def play_single_dilemma(player_1: Team,
         player_2_move = player_2.move(player_2_moves,
                                       player_1_moves,
                                       player_2_score,
-                                      player_1_score)
+                                      player_1_score,
+                                      player_1.team_name)
     except Exception:
         player_2_round_score = GLOBALS.CRASH
         player_2_move = 'n'
