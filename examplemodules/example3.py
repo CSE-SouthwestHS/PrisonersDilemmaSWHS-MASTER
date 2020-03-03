@@ -5,6 +5,7 @@
 #     strategy_description: a string
 #     move: A function that returns 'c' or 'b'
 ####
+import GLOBALS
 
 team_name = 'E3'
 strategy_name = 'Collude but retaliate'
@@ -20,12 +21,15 @@ def move(my_history, their_history, my_score, their_score, opponent_name):
     their_history: a string of the same length as history, possibly empty. 
     The first round between these two players is my_history[0] and their_history[0]
     The most recent round is my_history[-1] and their_history[-1]
-    
-    Returns 'c' or 'b' for collude or betray.
+
+    Note:  Instead of hard coding 'c' or 'b', this function refers to the GLOBAL variables.
+    Some would consider this a more elegant way to reference these values since if the value for
+    colluding or betraying were to change, changing those in the GLOBALS module would propagate.
+    The next example module accomplishes this more efficiently.
     """
     if len(my_history) == 0:  # It's the first round; collude.
-        return 'c'
-    elif my_history[-1] == 'c' and their_history[-1] == 'b':
-        return 'b'  # Betray if they were severely punished last time,
+        return GLOBALS.COLLUDE
+    elif my_history[-1] == GLOBALS.COLLUDE and their_history[-1] == GLOBALS.BETRAY:
+        return GLOBALS.BETRAY  # Betray if they were severely punished last time,
     else:
-        return 'c'  # otherwise collude.
+        return GLOBALS.COLLUDE  # otherwise collude.

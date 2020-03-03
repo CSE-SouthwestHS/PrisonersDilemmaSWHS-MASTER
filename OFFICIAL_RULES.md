@@ -20,7 +20,7 @@ To participate in the Prisoner's Dilemma competition, you must contribute a Pyth
 ```
 .\iterated-dilemma.py -d tournament
 ```
-See the README file for more information on running the Prisoners Dilemma.
+See the [README](https://github.com/CSE-SouthwestHS/PrisonersDilemmaSWHS-MASTER/blob/master/README.md) file for more information on running a Prisoners Dilemma Tournament.
 
 ## RULES:
 ### 1.
@@ -30,7 +30,7 @@ Thy program shalt collude or betray. Thou shalt return "c" or "b", no more, no l
 While thy enemy may be naughty in thy sight, Thou must not tempt thy enemy to stray.  Therefore thy program must not change thy opponents answer, nor cause their answer to return other than "c" or "b".
 
 ### 3.
-You or your program may not make real or virtual changes to the competition code provided to you in the project directory.
+You or your program may not make real or virtual changes to the competition code provided to you in the project root directory.
 
 ### 4.
 You or your program may not make real or virtual changes your competitors code in the "tournament" directory.
@@ -67,7 +67,7 @@ You may not change the scoring of the competition or manipulate players score to
   (_(||)-| S123-45 |-(||)_)
 ```
 
-# To Compete:
+# To Compete using GitHub:
 1. Using Git, make a `Branch` of this Prisoners Dilemma repository.
 2. On your Branch, create your Module in this directory.
 3. When your Module is complete, `Commit` your final changes to your branch.
