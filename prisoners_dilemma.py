@@ -98,9 +98,7 @@ def play_single_dilemma(player_1: Team,
                                       player_2_score,
                                       player_2.team_name)
     except Exception:
-        player_1_round_score = GLOBALS.CRASH
         player_1_move = 'n'
-        print(f"{player_1.team_name} crashed in a match against {player_2.team_name}, deducting {GLOBALS.CRASH * -1} points as a result")
         if not suppress_exceptions:
             raise
 
@@ -111,20 +109,18 @@ def play_single_dilemma(player_1: Team,
                                       player_1_score,
                                       player_1.team_name)
     except Exception:
-        player_2_round_score = GLOBALS.CRASH
         player_2_move = 'n'
-        print(f"{player_2.team_name} crashed in a match against {player_1.team_name}, deducting {GLOBALS.CRASH * -1} points as a result")
         if not suppress_exceptions:
             raise
 
-    if player_1_move not in GLOBALS.ACCEPTABLE_RESPONSES and not player_1_move == 'n':
+    if player_1_move not in GLOBALS.ACCEPTABLE_RESPONSES or player_1_move == 'n':
         player_1_round_score = GLOBALS.CRASH
         player_1_move = 'n'
-        print(f"{player_1.team_name} made a bad response in a match against {player_2.team_name}, deducting {GLOBALS.CRASH * -1} points as a result")
-    if player_2_move not in GLOBALS.ACCEPTABLE_RESPONSES and not player_1_move == 'n':
+        print(f"{player_1.team_name} crashed in a match against {player_2.team_name}, deducting {GLOBALS.CRASH * -1} points as a result")
+    if player_2_move not in GLOBALS.ACCEPTABLE_RESPONSES or player_1_move == 'n':
         player_2_round_score = GLOBALS.CRASH
         player_2_move = 'n'
-        print(f"{player_2.team_name} made a bad response in a match against {player_1.team_name}, deducting {GLOBALS.CRASH * -1} points as a result")
+        print(f"{player_2.team_name} crashed in a match against {player_1.team_name}, deducting {GLOBALS.CRASH * -1} points as a result")
     if (player_1_move == GLOBALS.COLLUDE) and (player_2_move == GLOBALS.COLLUDE):
         player_1_round_score += GLOBALS.REWARD
         player_2_round_score += GLOBALS.REWARD
