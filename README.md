@@ -2,7 +2,8 @@
 #### Coded by [Arthur Goldman](https://github.com/gefjon) (Minneapolis Southwest High School, Class of 2017)
 Contributors:
 * [Henning Tonko](https://github.com/HenningTonko) Added -r (random) argument (SWHS Class of 2018)
-* [Themistocles Megas](https://github.com/Themis3000) Improved code optimization, python 3.8 support, -e argument, & rule compliance. (SWHS Class of 2021)
+* [Themi Megas](https://github.com/Themis3000) Improved code optimization and cleanliness, python 3.8 support,
+-e argument, -s argument & rule compliance. (SWHS Class of 2021)
 
 #### Brought to you by Gabriel A Pass (PLTW Computer Science Instructor)
 
@@ -42,6 +43,7 @@ C:\Users\Me\Desktop\weSuck.py
 Any number of modules can be given.
 
 Additional Options:
+* `-s` argument:  Allows you to manually step into each round with the enter key. Good for small groups or one on ones
 * `-r` argument:  Randomizes player order.
 * `-e` argument:  Error messages from player modules are suppressed when printing results.
 
