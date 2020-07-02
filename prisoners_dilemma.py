@@ -24,16 +24,14 @@ def load_modules(module_names: List[str]):
     load them. Return a list of teams, which are
     instances of Team from teamclass.py
     """
-    teams = []
-    for team_number, module_name in enumerate(module_names):
-        teams.append(Team(module_name, team_number))
+    teams = [Team(module_name, team_number) for team_number, module_name in enumerate(module_names)]
     return teams
 
 
 def play_tournament(modules: List[Team], suppress_exceptions: bool = True):
-    scores = [[False for _ in range(len(modules))] for _ in range(len(modules))]  # an n*n list for scores
+    scores = [[None for _ in range(len(modules))] for _ in range(len(modules))]  # an n*n list for scores
     # each player's scores are in scores[that_player][opponent]
-    moves = [[False for _ in range(len(modules))] for _ in range(len(modules))]  # an n*n list for moves
+    moves = [[None for _ in range(len(modules))] for _ in range(len(modules))]  # an n*n list for moves
     for first_team_index in range(len(modules)):
         for second_team_index in range(first_team_index + 1):
             # each player plays against all the players before them
@@ -173,10 +171,9 @@ def display_standings(teams: List[Team], scores: List[List[int]]):
 
 def main(module_names: List[str], should_random: bool = False, suppress_exceptions: bool = False):
     teams = load_modules(module_names)
+    assert len(teams) > 1, "You must supply 1 or more valid team modules"
     if should_random:
         random.shuffle(teams)
-    if not teams:
-        return 1
     else:
         display_lineup(teams)
         scores, moves = play_tournament(teams, suppress_exceptions)
