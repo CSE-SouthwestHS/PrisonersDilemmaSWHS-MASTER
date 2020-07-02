@@ -43,7 +43,7 @@ C:\Users\Me\Desktop\weSuck.py
 Any number of modules can be given.
 
 Additional Options:
-* `-s` argument:  Allows you to manually step into each round with the enter key. Good for small groups or one on ones
+* `-s` argument:  Allows you to manually step into each round with the enter key. Good for small groups
 * `-r` argument:  Randomizes player order.
 * `-e` argument:  Error messages from player modules are suppressed when printing results.
 
