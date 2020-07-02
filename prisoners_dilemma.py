@@ -10,7 +10,6 @@ from teamclass import Team
 from pandas import DataFrame
 import random
 from typing import List
-import sys
 
 default_module_names = ['examplemodules/example0.py',
                         'examplemodules/example1.py',
@@ -174,8 +173,7 @@ def main(module_names: List[str], should_random: bool = False, suppress_exceptio
     assert len(teams) > 1, "You must supply 1 or more valid team modules"
     if should_random:
         random.shuffle(teams)
-    else:
-        display_lineup(teams)
-        scores, moves = play_tournament(teams, suppress_exceptions)
-        display_pvp_score(scores)
-        display_standings(teams, scores)
+    display_lineup(teams)
+    scores, moves = play_tournament(teams, suppress_exceptions)
+    display_pvp_score(scores)
+    display_standings(teams, scores)
