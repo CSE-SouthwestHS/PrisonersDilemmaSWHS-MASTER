@@ -56,6 +56,8 @@ def play_round(player_1: Team, player_2: Team, suppress_exceptions: bool = True)
     player_2_moves = ''
     player_1_score = 0
     player_2_score = 0
+    player_1_crashes = 0
+    player_2_crashes = 0
     for _ in range(number_of_rounds):
         player_1_single_score, \
             player_2_single_score, \
@@ -72,9 +74,17 @@ def play_round(player_1: Team, player_2: Team, suppress_exceptions: bool = True)
         player_2_score += player_2_single_score
         player_1_moves += player_1_single_move
         player_2_moves += player_2_single_move
+        if player_1_single_move == 'n':
+            player_1_crashes += 1
+        if player_2_crashes == 'n':
+            player_2_crashes += 1
     player_1_score = int(player_1_score / number_of_rounds)
     player_2_score = int(player_2_score / number_of_rounds)
     # Take the integer average score for each player so that it doesn't matter that we're doing a random number of rounds
+    if player_1_crashes > 0:
+        print(f"{player_1.team_name} crashed in {player_1_crashes} matches against {player_2.team_name}")
+    if player_2_crashes > 0:
+        print(f"{player_2.team_name} crashed in {player_2_crashes} matches against {player_1.team_name}")
     return player_1_score, player_2_score, player_1_moves, player_2_moves
 
 
@@ -110,15 +120,13 @@ def play_single_dilemma(player_1: Team,
         if not suppress_exceptions:
             raise
 
-    if player_1_move not in GLOBALS.ACCEPTABLE_RESPONSES or player_1_move == 'n':
+    if player_1_move not in GLOBALS.ACCEPTABLE_RESPONSES:
         player_1_round_score = GLOBALS.CRASH
         player_1_move = 'n'
-        print(f"{player_1.team_name} crashed in a match against {player_2.team_name}, deducting {GLOBALS.CRASH * -1} points as a result")
-    if player_2_move not in GLOBALS.ACCEPTABLE_RESPONSES or player_1_move == 'n':
+    elif player_2_move not in GLOBALS.ACCEPTABLE_RESPONSES:
         player_2_round_score = GLOBALS.CRASH
         player_2_move = 'n'
-        print(f"{player_2.team_name} crashed in a match against {player_1.team_name}, deducting {GLOBALS.CRASH * -1} points as a result")
-    if (player_1_move == GLOBALS.COLLUDE) and (player_2_move == GLOBALS.COLLUDE):
+    elif (player_1_move == GLOBALS.COLLUDE) and (player_2_move == GLOBALS.COLLUDE):
         player_1_round_score += GLOBALS.REWARD
         player_2_round_score += GLOBALS.REWARD
     elif (player_1_move == GLOBALS.COLLUDE) and (player_2_move == GLOBALS.BETRAY):
@@ -133,7 +141,7 @@ def play_single_dilemma(player_1: Team,
     return player_1_round_score,\
         player_2_round_score,\
         player_1_move,\
-        player_2_move
+        player_2_move,
 
 
 def make_section_title(title: str):
