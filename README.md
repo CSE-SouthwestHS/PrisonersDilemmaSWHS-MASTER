@@ -22,9 +22,9 @@ With these Requirements, you are ready to run your tournament.  See the [OFFICIA
 
 ## Running the Program
 
-Tournaments are run via `iterated-dilemma.py`.  Competitors create modules like those in the [examplemodules](https://github.com/CSE-SouthwestHS/PrisonersDilemmaSWHS-MASTER/tree/master/examplemodules) directory.  Each of these presents a different approach to competing against opponent modules, by colluding or betraying in iterative rounds.  Effective competitors will find the most cunning strategies to predict and outsmart the betrayals of their opponents, inducing an opponent to collude as often as possible while sometimes being betrayed.  
+Tournaments are run via `wrapper.py`.  Competitors create modules like those in the [examplemodules](https://github.com/CSE-SouthwestHS/PrisonersDilemmaSWHS-MASTER/tree/master/examplemodules) directory.  Each of these presents a different approach to competing against opponent modules, by colluding or betraying in iterative rounds.  Effective competitors will find the most cunning strategies to predict and outsmart the betrayals of their opponents, inducing an opponent to collude as often as possible while sometimes being betrayed.  
 
-To run an actual tournament, `iterated-dilemma.py` requires parameter arguments.
+To run an actual tournament, `wrapper.py` requires parameter arguments.
 If modules for your competition are contained in a directory, use the command flag `-d <directory-path>`:
 ```
 ./iterated-dilemma.py -d examplemodules
