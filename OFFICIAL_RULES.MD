@@ -66,6 +66,8 @@ One person is allowed only one entry file, you or your program may not add playe
 2. On your Branch, create your Module in this directory.
 3. When your Module is complete, `Commit` your final changes to your branch.
 4. On your Branch `Update from Default Branch`.
+5. Create a Pull Request to have your Branch merged to the master branch.
+
 *Good luck*
 
 ```
