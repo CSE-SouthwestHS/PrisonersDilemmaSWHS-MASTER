@@ -10,7 +10,6 @@ To do so, simply place them into in this directory.
 2. On your Branch, create your Module in this directory.
 3. When your Module is complete, `Commit` your final changes to your branch.
 4. On your Branch `Update from Default Branch`.
-5. Create a `Pull Request` to have your Branch merged to the master repository.
 *Good luck*
 
 ```
