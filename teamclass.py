@@ -12,13 +12,13 @@ regex = re.compile(r"[^a-zA-Z\d :.,'%`]")
 
 
 class Team:
-    team_name = False
-    strategy_name = False
-    strategy_description = False
-    move = False
-    player_number = False
-    summed_scores = False
-    team_number = False
+    team_name = None
+    strategy_name = None
+    strategy_description = None
+    move = None
+    player_number = None
+    summed_scores = 0
+    team_number = None
 
     def __init__(self, module_name: str, team_number: int):
         try:
