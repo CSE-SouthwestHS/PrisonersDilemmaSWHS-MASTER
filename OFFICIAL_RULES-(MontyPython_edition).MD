@@ -13,7 +13,8 @@ _____  _ _
 |___/ |_|_|\___|_| |_| |_|_| |_| |_|\__,_|   
 ```
 PrisonersDilemmaSWHS
-# Official Rules:
+# Official Rules (Monty Python edition):
+The classic version of the official rules featuring Monty Python jokes.  "And now for something completely different..."
 
 To participate in the Prisoner's Dilemma competition, you must contribute a Python module.  Modules for the competition will be placed together in a project sub directory named "tournament".  During the competition, the program will run with the parameters "-d tournament".  
 
@@ -30,13 +31,13 @@ Thy program shalt collude or betray. Thou shalt return "c" or "b", no more, no l
 While thy enemy may be naughty in thy sight, Thou must not tempt thy enemy to stray.  Therefore thy program must not manipulate thy opponents response, or any score values.
 
 ### 3.
-You or your program may not make changes to the competition code.
+You or your program may not make changes to the competition code, as it represents the violence inherent in the system.  You've got it right, you're being repressed.
 
 ### 4.
-You or your program may not make changes your competitors code.
+You or your program may not make changes your competitors code. (Nobody expects the Spanish Inquisition!)
 
 ### 5.
-You or your program may not add code or files which remain outside of the "tournament" directory after the program has completed.
+You or your program may not add code or files which remain outside of the "tournament" directory after the program has completed.  (No spam!)
 
 ### 6.
 One person is allowed only one entry file, and you may not add players that do not represent people.
@@ -44,6 +45,7 @@ One person is allowed only one entry file, and you may not add players that do n
 
 ### 7.
 You may not change the interpretation of "c" or "b" during the competition or add additional acceptable answers.
+Strange people on the internet, distributing letters, is no basis for a system of government!
 
 ```
   _________________________
@@ -66,7 +68,7 @@ You may not change the interpretation of "c" or "b" during the competition or ad
 2. On your Branch, create your Module in the 'tournament' directory.
 3. When your Module is complete, `Commit` your final changes to your branch.
 4. On your Branch `Update from Default Branch`.
-5. Create a `Pull Request` to have your Branch merged to your competition's master repository.
+5. Create a `Pull Request` to have your Branch merged to your tournament's master repository.
 
 *Good luck*
 

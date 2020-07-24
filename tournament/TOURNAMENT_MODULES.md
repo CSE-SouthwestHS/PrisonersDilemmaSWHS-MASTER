@@ -6,11 +6,11 @@ You may want to add any number of example modules to the to the tournament to pr
 To do so, simply place them into in this directory.
 
 # TO COMPETE:
-1. Using Git, make a `Branch` of this Prisoners Dilemma repository.
+1. Using Git, make a `Branch` of your tournament's Prisoners Dilemma repository.
 2. On your Branch, create your Module in this directory.
 3. When your Module is complete, `Commit` your final changes to your branch.
 4. On your Branch `Update from Default Branch`.
-5. Create a Pull Request to have your Branch merged to the master branch.
+5. Create a Pull Request to have your Branch merged to your tournament's master branch.
 
 *Good luck*
 

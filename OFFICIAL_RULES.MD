@@ -67,7 +67,7 @@ You may not change the interpretation of "c" or "b" during the competition or ad
 2. On your Branch, create your Module in the 'tournament' directory.
 3. When your Module is complete, `Commit` your final changes to your branch.
 4. On your Branch `Update from Default Branch`.
-5. Create a `Pull Request` to have your Branch merged to your competition's master branch.
+5. Create a `Pull Request` to have your Branch merged to your tournament's master branch.
 
 *Good luck*
 
