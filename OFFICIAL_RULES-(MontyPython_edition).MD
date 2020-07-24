@@ -15,20 +15,19 @@ _____  _ _
 PrisonersDilemmaSWHS
 # Official Rules:
 
-To participate in the Prisoner's Dilemma competition, you must contribute a Python module.  Modules for the competition will be placed together in a project sub directory named "tournament". During the competition, the program will run with the parameters "-d tournament".  
+To participate in the Prisoner's Dilemma competition, you must contribute a Python module.  Modules for the competition will be placed together in a project sub directory named "tournament".  During the competition, the program will run with the parameters "-d tournament".  
 
 ```
 .\iterated-dilemma.py -d tournament
 ```
-See the [README](https://github.com/CSE-SouthwestHS/PrisonersDilemmaSWHS-MASTER/blob/master/README.md) file for more
-information on running a Prisoners Dilemma Tournament.
+See the [README](https://github.com/CSE-SouthwestHS/PrisonersDilemmaSWHS-MASTER/blob/master/README.md) file for more information on running a Prisoners Dilemma Tournament.
 
 ## RULES:
 ### 1.
-Your team module must return values "c" or "b".
+Thy program shalt collude or betray. Thou shalt return "c" or "b", no more, no less. "c" or "b" shall be the answers thou shalt return, and the answers of thy program shall be "c" or "b". "a" shalt thou not return, nor either answer thou "d", excepting that thou then proceed to "c" or "b". "e" is right out! Once the answer "c" or "b", being collusion or betrayal, be chosen, then returnest thou thy answer towards thy foe.
 
 ### 2.
-You may not directly manipulate your opponents response or any score values.
+While thy enemy may be naughty in thy sight, Thou must not tempt thy enemy to stray.  Therefore thy program must not manipulate thy opponents response, or any score values.
 
 ### 3.
 You or your program may not make changes to the competition code.
@@ -37,11 +36,11 @@ You or your program may not make changes to the competition code.
 You or your program may not make changes your competitors code.
 
 ### 5.
-You or your program may not add files which remain outside of the "tournament" directory after the program has completed.
+You or your program may not add code or files which remain outside of the "tournament" directory after the program has completed.
 
 ### 6.
-One person is allowed only one entry file, you or your program may not add players that do not represent people.
-(The person administering your tournament may add players, such as the example modules.)
+One person is allowed only one entry file, and you may not add players that do not represent people.
+(The person administering your tournament may add players, such as the examplemodules.)
 
 ### 7.
 You may not change the interpretation of "c" or "b" during the competition or add additional acceptable answers.
@@ -67,7 +66,7 @@ You may not change the interpretation of "c" or "b" during the competition or ad
 2. On your Branch, create your Module in the 'tournament' directory.
 3. When your Module is complete, `Commit` your final changes to your branch.
 4. On your Branch `Update from Default Branch`.
-5. Create a `Pull Request` to have your Branch merged to your competition's master branch.
+5. Create a `Pull Request` to have your Branch merged to your competition's master repository.
 
 *Good luck*
 
