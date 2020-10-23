@@ -1,9 +1,8 @@
 # PrisonersDilemmaSWHS
-#### Coded by [Arthur Goldman](https://github.com/gefjon) (Minneapolis Southwest High School, Class of 2017)
+#### Coded by [Arthur Goldman](https://github.com/gefjon) (Minneapolis Southwest High School, Class of 2017) - Original Programmer
+#### & [Themi Megas](https://github.com/Themis3000) (SWHS Class of 2021) - 2020 rewrite adding optimization, Python 3.8 support, arguments -e, -s, & rule compliance. 
 Contributors:
 * [Henning Tonko](https://github.com/HenningTonko) Added -r (random) argument (SWHS Class of 2018)
-* [Themi Megas](https://github.com/Themis3000) Improved code optimization and cleanliness, python 3.8 support,
--e argument, -s argument & rule compliance. (SWHS Class of 2021)
 
 #### Brought to you by Gabriel A Pass (PLTW Computer Science Instructor)
 
